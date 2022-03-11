@@ -21,6 +21,10 @@ function App() {
     [createAlert]
   );
 
+  const onClose = useCallback(() => {
+    createAlert(ALERT_VARIANT.error, "Error connecting to websocket server");
+  }, [createAlert]);
+
   const onOpen = useCallback(() => {
     createAlert(ALERT_VARIANT.success, "Connected to server");
   }, [createAlert]);
@@ -30,6 +34,7 @@ function App() {
     onMessage,
     onError,
     onOpen,
+    onClose,
   });
 
   return (
@@ -38,7 +43,7 @@ function App() {
         <Header>
           <HeaderContent>
             <PageTitle>WILIOT</PageTitle>
-            <Subitle>Test</Subitle>
+            <Subtitle>Test</Subtitle>
           </HeaderContent>
         </Header>
         <Widgets>
@@ -86,7 +91,7 @@ const HeaderContent = styled.div`
 const PageTitle = styled.div`
   font-size: 2rem;
 `;
-const Subitle = styled.div``;
+const Subtitle = styled.div``;
 
 const Page = styled.div`
   width: 60rem;

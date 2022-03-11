@@ -35,7 +35,7 @@ const LiveChart = <T extends Record<string, unknown>>({
 
     const chartInstance = root.container.children.push(
       am5xy.XYChart.new(root, {
-        layout: root.gridLayout,
+        layout: root.verticalLayout,
       })
     );
 
